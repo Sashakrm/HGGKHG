@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ApplicationManifest>app.manifest</ApplicationManifest>
+        <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AvaloniaResource Include="Assets\**"/>
+    </ItemGroup>
+    
+    <ItemGroup>
+    	<None Include="Native\libcrypto.so">
+    		<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    	</None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Avalonia" Version="11.3.12"/>
+        <PackageReference Include="Avalonia.Desktop" Version="11.3.12"/>
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.12"/>
+        <PackageReference Include="Avalonia.Fonts.Inter" Version="11.3.12"/>
+        <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+        <PackageReference Include="Avalonia.Diagnostics" Version="11.3.12">
+            <IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
+            <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.12" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.12" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="11.0.0-preview.1.26104.118">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="11.0.0-preview.1.26104.118" />
+        <PackageReference Include="SQLite" Version="3.13.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Data\Configurations\" />
+      <Folder Include="Data\Constants\" />
+      <Folder Include="Data\Migrations\" />
+      <Folder Include="Native\" />
+      <Folder Include="Views\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="Dental_Clinic_App.csproj" />
+    </ItemGroup>
+</Project>

@@ -1,0 +1,7 @@
+/home/noktemor/RiderProjects/AvaloniaApplication1/AvaloniaApplication1/obj/Debug/net8.0/AvaloniaApplication1.csproj.AssemblyReference.cache
+/home/noktemor/RiderProjects/AvaloniaApplication1/AvaloniaApplication1/obj/Debug/net8.0/Avalonia/Resources.Inputs.cache
+/home/noktemor/RiderProjects/AvaloniaApplication1/AvaloniaApplication1/obj/Debug/net8.0/Avalonia/resources
+/home/noktemor/RiderProjects/AvaloniaApplication1/AvaloniaApplication1/obj/Debug/net8.0/AvaloniaApplication1.GeneratedMSBuildEditorConfig.editorconfig
+/home/noktemor/RiderProjects/AvaloniaApplication1/AvaloniaApplication1/obj/Debug/net8.0/AvaloniaApplication1.AssemblyInfoInputs.cache
+/home/noktemor/RiderProjects/AvaloniaApplication1/AvaloniaApplication1/obj/Debug/net8.0/AvaloniaApplication1.AssemblyInfo.cs
+/home/noktemor/RiderProjects/AvaloniaApplication1/AvaloniaApplication1/obj/Debug/net8.0/AvaloniaApplication1.csproj.CoreCompileInputs.cache

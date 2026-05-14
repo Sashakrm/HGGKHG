@@ -1,0 +1,125 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="AvaloniaApplication1.MainWindow"
+        Title="Dental Clinic Dashboard"
+        Width="1200" Height="800"
+        Background="#F5F7FA">
+    
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+        <Grid RowDefinitions="Auto,*" Margin="24">
+            
+            <!-- Шапка -->
+            <StackPanel Grid.Row="0" Margin="0,0,0,24">
+                <TextBlock Text="Дашборд" FontSize="24" FontWeight="Bold" Foreground="#1A1A1A"/>
+                <TextBlock Text="Добро пожаловать в систему управления клиникой" 
+                           Foreground="#666666" FontSize="14" Margin="0,4,0,0"/>
+            </StackPanel>
+            
+            <!-- Основной контент -->
+            <Grid Grid.Row="1" RowDefinitions="Auto,*,Auto" RowSpacing="20">
+                
+                <!-- Статистика (4 карточки) -->
+                <UniformGrid Grid.Row="0" Columns="4" Margin="0,0,0,8">
+                    
+                    <Border Classes="Card">
+                        <StackPanel>
+                            <TextBlock Classes="StatTitle" Text="Всего пациентов"/>
+                            <TextBlock Classes="StatValue" Text="5"/>
+                            <TextBlock Classes="TrendUp" Text="+12%" Margin="0,8,0,0"/>
+                        </StackPanel>
+                    </Border>
+                    
+                    <Border Classes="Card">
+                        <StackPanel>
+                            <TextBlock Classes="StatTitle" Text="Записи на сегодня"/>
+                            <TextBlock Classes="StatValue" Text="4"/>
+                            <TextBlock Text="записи" Foreground="#999999" FontSize="12" Margin="0,4,0,0"/>
+                        </StackPanel>
+                    </Border>
+                    
+                    <Border Classes="Card">
+                        <StackPanel>
+                            <TextBlock Classes="StatTitle" Text="Предстоящие записи"/>
+                            <TextBlock Classes="StatValue" Text="0"/>
+                            <TextBlock Classes="TrendUp" Text="+8%" Margin="0,8,0,0"/>
+                        </StackPanel>
+                    </Border>
+                    
+                    <Border Classes="Card">
+                        <StackPanel>
+                            <TextBlock Classes="StatTitle" Text="Доход за месяц"/>
+                            <TextBlock Classes="StatValue" Text="22к ₽"/>
+                            <TextBlock Classes="TrendUp" Text="+15%" Margin="0,8,0,0"/>
+                        </StackPanel>
+                    </Border>
+                </UniformGrid>
+                
+                <!-- Графики -->
+                <Grid Grid.Row="1" ColumnDefinitions="*,*" ColumnSpacing="20" Margin="0,0,0,16">
+                    
+                    <Border Classes="Card" Grid.Column="0">
+                        <StackPanel>
+                            <TextBlock Classes="SectionHeader" Text="Доход по месяцам"/>
+                            <Border Background="#F8F9FA" CornerRadius="8" Height="200" Margin="0,8,0,0">
+                                <Grid RowDefinitions="*,Auto">
+                                    <Canvas Background="Transparent">
+                                        <Rectangle Canvas.Left="20" Canvas.Top="150" Width="40" Height="30" Fill="#3B82F6" Opacity="0.8"/>
+                                        <Rectangle Canvas.Left="80" Canvas.Top="120" Width="40" Height="60" Fill="#3B82F6" Opacity="0.8"/>
+                                        <Rectangle Canvas.Left="140" Canvas.Top="80" Width="40" Height="100" Fill="#3B82F6"/>
+                                    </Canvas>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,8">
+                                        <TextBlock Text="Янв" FontSize="11" Foreground="#999" Margin="15,0"/>
+                                        <TextBlock Text="Фев" FontSize="11" Foreground="#999" Margin="15,0"/>
+                                        <TextBlock Text="Март" FontSize="11" Foreground="#999" Margin="15,0"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                        </StackPanel>
+                    </Border>
+                    
+                    <Border Classes="Card" Grid.Column="1">
+                        <StackPanel>
+                            <TextBlock Classes="SectionHeader" Text="Записи на неделю"/>
+                            <Border Background="#F8F9FA" CornerRadius="8" Height="200" Margin="0,8,0,0">
+                                <Grid RowDefinitions="*,Auto">
+                                    <Canvas Background="Transparent">
+                                        <Path Data="M 20,150 L 60,130 L 100,140 L 140,100 L 180,110" 
+                                              Stroke="#10B981" StrokeThickness="2" Fill="Transparent"/>
+                                        <Ellipse Canvas.Left="18" Canvas.Top="146" Width="8" Height="8" Fill="#10B981"/>
+                                        <Ellipse Canvas.Left="98" Canvas.Top="136" Width="8" Height="8" Fill="#10B981"/>
+                                        <Ellipse Canvas.Left="178" Canvas.Top="106" Width="8" Height="8" Fill="#10B981"/>
+                                    </Canvas>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,8">
+                                        <TextBlock Text="Пн" FontSize="11" Foreground="#999" Margin="10,0"/>
+                                        <TextBlock Text="Вт" FontSize="11" Foreground="#999" Margin="10,0"/>
+                                        <TextBlock Text="Ср" FontSize="11" Foreground="#999" Margin="10,0"/>
+                                        <TextBlock Text="Чт" FontSize="11" Foreground="#999" Margin="10,0"/>
+                                        <TextBlock Text="Пт" FontSize="11" Foreground="#999" Margin="10,0"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+                
+                <!-- Записи на сегодня -->
+                <Border Grid.Row="2" Classes="Card" Padding="20">
+                    <StackPanel>
+                        <TextBlock Classes="SectionHeader" Text="Записи на сегодня"/>
+                        
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,30,0,30">
+                            <TextBlock Text="📋" FontSize="32" HorizontalAlignment="Center" Margin="0,0,0,12"/>
+                            <TextBlock Text="Нет записей на сегодня" 
+                                       Foreground="#666666" FontSize="15" HorizontalAlignment="Center"/>
+                            <Button Content="+ Добавить запись" 
+                                    Background="#3B82F6" Foreground="White"
+                                    CornerRadius="6" Padding="16,8" Margin="0,16,0,0"
+                                    HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</Window>
